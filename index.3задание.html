@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+
+    
+
+        <head>
+            <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+        
+            <title>3 задание</title>
+
+        <style type="text/css">
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Inter, Roboto, Oxygen, Fira Sans, Helvetica Neue, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 16px;
+            color: #55789b;
+            background: #0d2f52;
+        }
+        
+        hr {
+            margin: 1rem 0;
+        }
+        
+        strong,
+        .bold {
+            font-weight: 500;
+        }
+        
+        ol,
+        p,
+        ul {
+            line-height: 1.7;
+        }
+        
+        a {
+            color: #2d4e3f;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 500;
+            line-height: 1.45;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 1.65rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #8290a7;
+        }
+        
+        h3 {
+            font-size: 1.35rem;
+        }
+        
+        .primary {
+        /*    color: #42b983;*/
+        }
+        
+        .danger {
+        /*    color: #e53935;*/
+        }
+        
+        .btn {
+            color: #29ad72;
+            position: relative;
+            place-content: center;
+            place-items: center;
+            width: fit-content;
+            border-radius: 99px;
+            letter-spacing: 0.05em;
+            border: 1px solid #34996c;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-right: 10px;
+            padding: 0.5rem 1.5rem;
+            white-space: nowrap;
+            font-weight: 700;
+            outline: none;
+            background: rgb(150, 88, 88);
+            transition: all 0.22s;
+        }
+        
+        .btn:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        
+        .btn:disabled {
+            cursor: not-allowed;
+            opacity: 1!important;
+            background: rgb(153, 24, 24)!important;
+            border-color: rgb(184, 184, 184)!important;
+            color: rgb(124, 124, 124)!important;
+        }
+        
+        .btn:active {
+            box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn.primary {
+            background: #42c087;
+            color: rgb(228, 228, 228);
+        }
+        
+        .btn.danger {
+            background: #db2926;
+            color: #fff;
+            border-color: #d12b28;
+        }
+        
+        .btn.warning {
+            background: #a74706;
+            color: #fff;
+            border-color: #a84b0c;
+        }
+        
+        .container {
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        
+        .container.with-nav {
+            margin-top: 70px;
+        }
+        
+        .pt-2 {
+            padding-top: 2rem;
+        }
+        
+        .pt-1 {
+            padding-top: 1rem;
+        }
+        
+        .pt-5 {
+            padding-top: 5rem;
+        }
+        
+        .form-control {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control input,
+        .form-control select {
+            margin: 0;
+            outline: none;
+            border: 2px solid rgb(189, 189, 189);
+            display: block;
+            width: 100%;
+            color: #34475a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 3px;
+            font-size: 1rem;
+        }
+        
+        .form-control small {
+            color: #cc2320;
+        }
+        
+        .form-control.invalid input {
+            border-color: #c82f2c;
+        }
+        
+        .form-checkbox {
+            margin-bottom: 1rem;
+        }
+        
+        .form-checkbox .label {
+            display: block;
+            margin: 0 0 0.3rem 0.3rem;
+            font-weight: 500;
+        }
+        
+        .form-checkbox .checkbox input {
+            margin-right: 1rem;
+        }
+        
+        .form-control label {
+            display: block;
+            margin: 0 0 0.3rem 0.3rem;
+            font-weight: 500;
+        }
+        
+        .form-control input:active,
+        .form-control input:focus {
+            transition: border 0.22s;
+            border: 2px solid #2f865f;
+        }
+        
+        .card {
+            overflow: hidden;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+        
+        .card.marked {
+            border: 4px solid #3da375;
+        }
+        
+        .card.center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            transition: .22s all;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .list-item:hover {
+            background: rgb(224, 224, 224);
+        }
+        
+        .alert {
+            padding: 1rem 1.5rem;
+            border-left-width: .5rem;
+            border-left-style: solid;
+            margin: 1rem 0;
+            position: relative;
+            border-bottom-right-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+        
+        .alert.primary {
+            border-color: #3bb37d;
+            background-color: #ece7e7;
+        }
+        
+        .alert.danger {
+            border-color: #c02522;
+            background-color: #b9b2b2;
+        }
+        
+        .alert.warning {
+            border-color: #9e4103;
+            background-color: #f8f8f8;
+        }
+        
+        .alert p {
+            color: rgb(22, 22, 22);
+            line-height: 1.7;
+        }
+        
+        .alert-title {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: -.4rem;
+            color: rgb(34, 34, 34);
+        }
+        
+        .modal {
+            position: fixed;
+            top: 60px;
+            width: 600px;
+            padding: 1rem;
+            background: #fff;
+            z-index: 1000;
+            left: 50%;
+            border-radius: 10px;
+            transform: translateX(-50%);
+            box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, .35);
+        }
+        
+        
+        
+        
+        
+        .loader {
+            font-size: 10px;
+            margin: 50px auto;
+            text-indent: -9999em;
+            width: 11em;
+            height: 11em;
+            border-radius: 50%;
+            background: #ffffff;
+            background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            position: relative;
+            -webkit-animation: load3 1.4s infinite linear;
+            animation: load3 1.4s infinite linear;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        .loader:before {
+            width: 50%;
+            height: 50%;
+            background: #ffffff;
+            border-radius: 100% 0 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+        }
+        .loader:after {
+            background: #2c3e50;
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            content: '';
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        @-webkit-keyframes load3 {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes load3 {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        .navbar {
+            display: flex;
+            padding: 0 2rem;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 20;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background-color: #fff;
+            box-sizing: border-box;
+            border-bottom: 1px solid #eaecef;
+        }
+        
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+        }
+        
+        .navbar-menu li {
+            margin-right: 2rem;
+        }
+        
+        .navbar-menu li a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .navbar-menu li a:hover, .navbar-menu li a.active {
+            border-bottom: 2px solid #3eaf7c;
+        }
+        </style>
+        </head>
+        <body>
+        <div class="container" id="app">
+            <div class="card">
+                <h1>Учет товаров</h1>
+                <div class="form-control" >
+                    <input type="text" placeholder="Товар аты" v-bind:value="inputNaz" v-on:input="inputChange" />
+                    <input type="date" placeholder="Дата приема товара " v-bind:value="inputDat" v-on:input="inputChange0"/>
+                    <input type="text" placeholder="Количество" v-bind:value="inputKol" v-on:input="inputChange1"/>
+                    <input type="text" placeholder="Цена за единицу " v-bind:value="inputPri" v-on:input="inputChange2"/>
+                </div>
+                <button class="btn" v-on:click="addNew">Добавить товар</button>
+                <button class="btn danger" v-on:click="remove">Удалить</button>
+            <hr />
+            <ul class="list">
+                <li class="list-item" v-for="(note, index) in notes">
+                ({{index+1}}) {{note}}
+                </li>
+            </ul>
+            </div>
+        </div>
+        
+        
+        <script src="https://unpkg.com/vue@3"></script>
+        <script type="text/javascript">
+        const App =
+        {
+            data()
+            {
+                return{inputNaz:'', inputDat:'',  inputKol:'', inputPri:'', notes:[]}
+            },
+            methods:
+            {
+                inputChange(event){this.inputNaz=event.target.value},
+                inputChange0(event){this.inputDat=event.target.value},
+                inputChange1(event){this.inputKol=event.target.value},
+                inputChange2(event){this.inputPri=event.target.value},
+                
+                addNew(){this.notes.push(this.inputNaz, this.inputDat, this.inputKol, this.inputPri), this.inputNaz='', this.inputDat='', this.inputKol='', this.inputPri=''},
+                remove(index){this.notes.splice(index, 4)}
+            }
+        }
+        Vue.createApp(App).mount('#app')
+        
+        
+        </script>
+        </body>
+        </html>
